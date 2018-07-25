@@ -29,8 +29,6 @@ const styles = (theme: Theme) => createStyles({
   media: {
     height: 0,
     paddingTop: '56.25%',
-    // maxHeight: 450,
-    // maxWidth: 300,
 
     [theme.breakpoints.up('sm')]: {
       paddingTop: '46.25%',
@@ -48,7 +46,6 @@ const styles = (theme: Theme) => createStyles({
 
     [theme.breakpoints.down('sm')]: {
       bottom: -25,
-      // height: 200,
       width: 100,
     }
   },
@@ -62,27 +59,20 @@ const styles = (theme: Theme) => createStyles({
     padding: '32px 16px',
 
     [theme.breakpoints.up('md')]: {
-      // padding: 0,
       paddingLeft: 350
     },
 
     [theme.breakpoints.only('lg')]: {
-      // padding: 0,
       paddingRight: 200
     },
 
     [theme.breakpoints.only('xl')]: {
-      // padding: 0,
       paddingRight: 350
     }
   },
   
   main: {
-    // backgroundColor: '#efe9e8',
     display: 'flex',
-    // width: 500,
-
-    // flexGrow: 0,
     flex: 1,
   },
 

@@ -7,8 +7,6 @@ import grey from '@material-ui/core/colors/grey';
 const sansSerifFont = '"Montserrat","-apple-system,system-ui,BlinkMacSystemFont","Helvetica Neue",Arial,sans-serif';
 // const serifFont = '"Merriweather",Georgia,serif';
 
-// A theme with custom primary and secondary color.
-// It's optional.
 const theme = createMuiTheme({
   palette: {
     // type: 'dark',
@@ -40,8 +38,6 @@ const theme = createMuiTheme({
         border: `2px solid ${grey[700]}`,
         borderRadius: 0,
         marginRight: 5,
-        // padding: 2,
-        // textTransform: 'uppercase',
       },
       label: {
         fontSize: '.75rem',
@@ -54,7 +50,6 @@ const theme = createMuiTheme({
 
   typography: {
     fontFamily: sansSerifFont,
-    // fontSize: 10,
     display4: {
       color: grey[900],
       fontStyle: 'italic',
@@ -62,8 +57,6 @@ const theme = createMuiTheme({
     },
     display3: {
       color: grey[900],
-    //   fontFamily: serifFont,
-    //   fontWeight: 700,
     },
     display2: {
       color: grey[900],
@@ -78,10 +71,6 @@ const theme = createMuiTheme({
     // headline: {
     //   fontFamily: serifFont,
     //   fontWeight: 700,
-      
-    //   '@media (max-width: 960px)': {
-    //     fontSize: '1rem',
-    //   },
     // },
     title: {
       color: grey[700],
@@ -108,11 +97,8 @@ const theme = createMuiTheme({
 
 function withRoot(Component: React.ComponentType) {
   function WithRoot(props: object) {
-    // MuiThemeProvider makes the theme available down the React tree
-    // thanks to React context.
     return (
       <MuiThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...props} />
       </MuiThemeProvider>

@@ -27,47 +27,43 @@ type HomeProps =
 & ReduxDispatchProps;
 
 class HomePage extends React.Component<HomeProps, {}> {
-
-// class Movie extends React.Component {
   componentDidMount() {
-    // this.props.fetchMovie(this.props.match.params.id);
     this.props.movieList('popular');
 
     window.scrollTo(0, 0);
   }
     
   render() {
-
-      return(
-        <React.Fragment>
-          <PageLayout>
-            <Grid container spacing={16} justify="center">
-              <Grid item xs={12} xl={10}>
-                <Grid container spacing={16}>
-                  <Grid item xs={12}>
-                    <Hidden smDown>
-                      <Typography variant="display4">Popular</Typography>
-                    </Hidden>
-                    <Hidden mdUp>
-                      <Typography variant="display1">Popular</Typography>
-                    </Hidden>
-                  </Grid>
-                  {this.props.listOfThings && this.props.listOfThings.results.map( (thing: any, i: number) => {
-                    return <Grid item xs={3} sm={2} key={i}>
-                      <ContentCard
-                        title={thing.title}
-                        link={`/movie/${thing.id}`}
-                        poster={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${thing.poster_path}`}
-                      />
-                    </Grid>;
-                  })}
+    return(
+      <React.Fragment>
+        <PageLayout>
+          <Grid container spacing={16} justify="center">
+            <Grid item xs={12} xl={10}>
+              <Grid container spacing={16}>
+                <Grid item xs={12}>
+                  <Hidden smDown>
+                    <Typography variant="display4">Popular</Typography>
+                  </Hidden>
+                  <Hidden mdUp>
+                    <Typography variant="display1">Popular</Typography>
+                  </Hidden>
                 </Grid>
+                {this.props.listOfThings && this.props.listOfThings.results.map( (thing: any, i: number) => {
+                  return <Grid item xs={3} sm={2} key={i}>
+                    <ContentCard
+                      title={thing.title}
+                      link={`/movie/${thing.id}`}
+                      poster={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${thing.poster_path}`}
+                    />
+                  </Grid>;
+                })}
               </Grid>
             </Grid>
-          </PageLayout>
-        </React.Fragment>
-      );
-    }
+          </Grid>
+        </PageLayout>
+      </React.Fragment>
+    );
+  }
 }
 
 // state needs typings

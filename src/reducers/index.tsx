@@ -1,15 +1,5 @@
 import { combineReducers } from 'redux';
 
-// // import resultsReducer from './results-reducer';
-// import filmReducer from './film-reducer';
-// // import personReducer from './person-reducer';
-
-// const rootReducer = combineReducers({
-//     // results: resultsReducer,
-//     activeFilm: filmReducer,
-//     // personList: personReducer,
-// });
-
 import {
   FETCH_MOVIES, FETCH_MOVIES_SUCCESS, FETCH_MOVIES_FAILURE,
   FETCH_MOVIE, FETCH_MOVIE_SUCCESS, FETCH_MOVIE_FAILURE,
@@ -19,17 +9,6 @@ import {
   // SEARCH_MOVIE, SEARCH_MOVIE_SUCCESS, SEARCH_MOVIE_FAILURE,
   // ENTER_SEARCH_TEXT
 } from '../actions';
-
-// export default rootReducer;
-
-// import { FETCH_MOVIE } from '../actions';
-
-// let defaultState = {
-//   movie: {
-//     title: 'red',
-//     overview: '',
-//   }
-// };
 
 const defaultState = {
   isFetching: false,

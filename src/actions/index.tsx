@@ -1,5 +1,3 @@
-// import axios from 'axios';
-
 export const FETCH_MOVIE = 'FETCH_MOVIE';
 export const FETCH_MOVIE_SUCCESS = 'FETCH_MOVIE_SUCCESS';
 export const FETCH_MOVIE_FAILURE = 'FETCH_MOVIE_FAILURE';
@@ -23,88 +21,8 @@ const URL_DETAIL = 'https://api.themoviedb.org/3/movie/';
 // const TRAILER_MAX_NUM = 3;
 const API_KEY = '?api_key=0937832cbf3fd4650f903d91d96dec31';
 
-// export function fetchPopular() {
-//     const request = axios.get(`https://api.themoviedb.org/3/list/38134?api_key=${API_KEY}`);
-//     return {
-//         type: FETCH_POPULAR,
-//         payload: request
-//     }
-// }
-
-// export function searchDatabase(term: string) {
-//     // This request will search for the term provided
-//     const request = axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query="${term}"`);
-//     return {
-//         type: SEARCH,
-//         payload: request
-//     }
-// }
-
-// export const fetchMovie = (id: number) => {
-//   const request = axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,release_dates`);
-//   return {
-//       type: FETCH_MOVIE,
-//       payload: request
-//   };
-// };
-
-// export const fetchMovie = (id: number) => {
-//   return (dispatch: any) => {
-//     dispatch(fetchMovieAsync(id));
-//     // dispatch(newToast(message))
-//   };
-// };
-
-// export const changeMovie = (data: any) => {
-//   return{
-//       type: FETCH_MOVIE,
-//       title: data.title,
-//   };
-// };
-
-// export const fetchMovie = (id: number) => {
-//   // const request = axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,release_dates`);
-//   // return {
-//   //   type: FETCH_MOVIE,
-//   //   payload: request
-//   // };
-
-//   return (dispatch: any) => {
-//     return axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,release_dates`).then((response) => {
-//       dispatch(changeMovie(response.data));
-//     });
-//   };
-// };
-
-// // export function create (values) {
-
-// //   return (dispatch) => {
-// //      dispatch({type: CREATE_ORGANIZATION});
-// //      axios.post('/url', values)   
-// //         .then((res) =>{
-// //             dispatch({type: CREATE_ORGANIZATION_SUCCESS, payload: res});
-// //         })
-// //         .catch((error)=> {
-// //             dispatch({type: CREATE_ORGANIZATION_FAILURE, payload: error});
-// //         })
-// //   }
-
-// // }
-
-// // export function fetchPerson(id: number) {
-// //     const request = axios.get(`https://api.themoviedb.org/3/person/${id}?api_key=${API_KEY}`);
-// //     return {
-// //         type: FETCH_PERSON,
-// //         payload: request
-// //     }
-// // }
-
-// export const clearMovie = () => {
-//   return {
-//       type: CLEAR_MOVIE,
-//       payload: null
-//   };
-// };
+// ============================================================
+// ============================================================
 
 const fetchMovie = () => {
   return {
