@@ -1,0 +1,38 @@
+{
+  "name": "create-react-app-with-typescript",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://sernstberger.github.io/movies-db",
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@types/react-redux": "^6.0.4",
+    "@types/react-router-dom": "^4.3.0",
+    "@types/redux-promise": "^0.5.28",
+    "@types/redux-thunk": "^2.1.0",
+    "axios": "^0.18.0",
+    "gh-pages": "^1.2.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts-ts": "latest",
+    "redux": "^4.0.0",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/jest": "*",
+    "@types/node": "*",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  }
+}
