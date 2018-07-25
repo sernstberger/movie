@@ -29,9 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "build": "react-scripts-ts build && cp build/index.html build/404.html",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
   }
