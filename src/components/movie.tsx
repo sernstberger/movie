@@ -26,9 +26,9 @@ import Slide from '@material-ui/core/Slide';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLongArrowRight, faTimes } from '@fortawesome/pro-light-svg-icons';
+import { faLongArrowLeft, faLongArrowRight, faTimes } from '@fortawesome/pro-light-svg-icons';
 
-library.add(faLongArrowRight, faTimes);
+library.add(faLongArrowLeft, faLongArrowRight, faTimes);
 
 function Transition(props: any) {
   return <Slide direction="up" {...props} />;
@@ -127,36 +127,44 @@ interface Props extends WithStyles<typeof styles> {
 type State = {
   open: boolean;
   photo: string;
-  photoNumber: number;
 };
+
+let photoNumber = 0;
+let backdropCount = 0;
 
 class Movie extends React.Component<Props, State> {
   state = {
     open: false,
     photo: '',
-    photoNumber: 0,
   };
 
-  handleClickOpen = (photo: string, photoNumber: number) => {
+  handleClickOpen = (photo: string, photoInt: number) => {
     this.setState({ 
       open: true,
       photo,
-      photoNumber: photoNumber + 1,
     });
+
+    photoNumber = photoInt,
+    // tslint:disable-next-line:no-console
+    console.log('photo number' , photoNumber);
   };
 
-  handleNextPhoto = (photo: string, photoNumber: number) => {
+  handleNextPhoto = (photo: string, photoInt: number) => {
     this.setState({ 
       photo,
-      photoNumber: photoNumber + 1,
     });
+    photoNumber = photoNumber + 1,
+    // tslint:disable-next-line:no-console
+    console.log('photo number' , photoNumber);
   };
 
-  handlePrevPhoto = (photo: string, photoNumber: number) => {
+  handlePrevPhoto = (photo: string, photoInt: number) => {
     this.setState({ 
       photo,
-      photoNumber: photoNumber - 1,
     });
+    photoNumber = photoNumber - 1,
+    // tslint:disable-next-line:no-console
+    console.log('photo number' , photoNumber);
   };
 
   handleClose = () => {
@@ -174,6 +182,7 @@ class Movie extends React.Component<Props, State> {
 
                   <Button
                     variant="contained"
+                    color="primary"
                     // color="default"
                     onClick={() => this.handleClickOpen(`https://image.tmdb.org/t/p/original${this.props.backdrop}`, 0)}
                     style={{
@@ -212,21 +221,23 @@ class Movie extends React.Component<Props, State> {
                       </Button>
 
                       <Button
-                        onClick={() => this.handleNextPhoto(`https://image.tmdb.org/t/p/original${this.props.imagesList.backdrops[`${this.state.photoNumber}`].file_path}`, this.state.photoNumber)}
+                        onClick={() => this.handleNextPhoto(`https://image.tmdb.org/t/p/original${this.props.imagesList.backdrops[`${photoNumber + 1}`].file_path}`, photoNumber)}
                         variant="fab"
                         color="primary"
-                        style={{fontSize: 30, position: 'absolute', right: 10, top: 100}}
+                        style={{fontSize: 30, position: 'absolute', right: 10, top: '50%', marginTop: -28}}
+                        disabled={photoNumber + 2 > backdropCount ? true : false}
                       >
                         <FontAwesomeIcon icon={faLongArrowRight} />
                       </Button>
 
                       <Button
-                        onClick={() => this.handlePrevPhoto(`https://image.tmdb.org/t/p/original${this.props.imagesList.backdrops[`${this.state.photoNumber}`].file_path}`, this.state.photoNumber)}
+                        onClick={() => this.handlePrevPhoto(`https://image.tmdb.org/t/p/original${this.props.imagesList.backdrops[`${photoNumber - 1}`].file_path}`, photoNumber)}
                         variant="fab"
                         color="primary"
-                        style={{fontSize: 30, position: 'absolute', left: 10, top: 100}}
+                        style={{fontSize: 30, position: 'absolute', left: 10, top: '50%', marginTop: -28}}
+                        disabled={photoNumber < 1 ? true : false}
                       >
-                        <FontAwesomeIcon icon={faLongArrowRight} />
+                        <FontAwesomeIcon icon={faLongArrowLeft} />
                       </Button>
 
                       <img src={this.state.photo} alt={this.props.title} style={{maxWidth: '100%'}}/>
@@ -305,6 +316,7 @@ class Movie extends React.Component<Props, State> {
                   <Typography variant="title" gutterBottom style={{marginTop: 20}}>Photos</Typography>
                   <Grid container spacing={16}>
                     {this.props.imagesList && this.props.imagesList.backdrops.map((image: any, i: number) => {
+                      backdropCount = this.props.imagesList.backdrops.length;
                       return (
                         <Grid item xs={6} sm={4} key={i}>
                           <img
