@@ -45,7 +45,7 @@ const fetchMovieFail = (error: any) => {
 };
 
 export const fetchMovieDetail = (id: number) => {
-  const urlMovie = URL_DETAIL + id + API_KEY + `&append_to_response=credits,videos,recommendations,release_dates`;
+  const urlMovie = URL_DETAIL + id + API_KEY + `&append_to_response=credits,videos,recommendations,images,release_dates`;
   return function(dispatch: any) {
     dispatch(fetchMovie());
     return fetch(urlMovie)

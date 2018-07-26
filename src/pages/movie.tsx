@@ -20,6 +20,10 @@ interface ReduxStateProps {
     credits: {
       cast: any;
     }
+    images: {
+      backdrops: any;
+      posters: any;
+    }
     genres: any;
     release_date: string;
     runtime: number;
@@ -64,6 +68,7 @@ class MoviePage extends React.Component<MovieProps, {}> {
           genres={this.props.activeFilm.genres}
           releaseDate={this.props.activeFilm.release_date}
           runtime={this.props.activeFilm.runtime}
+          imagesList={this.props.activeFilm.images}
         />
       </PageLayout>
     );
