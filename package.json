@@ -21,6 +21,10 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-pro": "^5.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+    "@fortawesome/pro-light-svg-icons": "^5.2.0",
+    "@fortawesome/react-fontawesome": "^0.1.0",
     "@types/jest": "*",
     "@types/node": "*",
     "typescript": "latest"

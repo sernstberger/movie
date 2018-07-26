@@ -78,8 +78,8 @@ const fetchMoviesFail = (error: any) => {
   };
 };
 
-export const fetchMoviesList = (foo: string) => {
-  const urlMovies = URL_LIST + '/popular' + API_KEY;
+export const fetchMoviesList = (list: string, page: number) => {
+  const urlMovies = URL_LIST + '/' + list + API_KEY + '&page=' + page;
   return function(dispatch: any) {
     dispatch(fetchMovies());
     return fetch(urlMovies)
